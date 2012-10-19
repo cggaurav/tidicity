@@ -6,4 +6,4 @@ connect.createServer(
     connect.static(__dirname)
 ).listen(8080);
 
-/* run as localhost:8080/www/index.html */
+/* run as localhost:8080/assets/www/index.html */

@@ -4,53 +4,32 @@
 	<title>Tidicity</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<!-- The meta viewport tag in the head to specify how the browser should display the page zoom level and dimensions. If this isn't set, many mobile browsers will use a "virtual" page width around 900 pixels to make it work well with existing desktop sites but the screens may look zoomed out and too wide -->
+	<link rel="stylesheet" href="../css/jquery.mobile-1.2.0.min.css" />
+
+	<!-- Fix this as modules for require.js -->
 	<script type="text/javascript" src="../js/libs/jquery/jquery-min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../js/jquery.ui.map.full.min.js"></script>
-
 	<script type="text/javascript" charset="utf-8" src="cordova-2.1.1.js"></script>
-	
 	<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 	
 	<script data-main="../js/main" src="../js/libs/require/require.js"></script>
 </head>
 <body>
 
-	<div data-role="header" data-id="header" data-position="fixed">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="slider.html"><img src="../images/slider.png"></img></a></li>
-				<li><img src="../images/header.png"></img></li>
-				<li><a href="submit.html"><img src="../images/submit.png"></img></a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /header -->
+	<div data-role="navbar">
+		<ul>
+			<li><a href="a.html" class="ui-btn-active ui-state-persist">One</a></li>
+			<li><a href="b.html">Two</a></li>
+		</ul>
+		<!-- <ul>
+			<li><a href="slider.html"><img src="../images/slider.png"></img></a></li>
+			<li><img src="../images/header.png"></img></li>
+			<li><a href="submit.html"><img src="../images/submit.png"></img></a></li>
+		</ul> -->
+	</div><!-- /navbar -->
 
-	<!-- <div data-role="content">	 -->
-	<div id="map_canvas" style="width:100%;height:600px"></div>
-
-	<script type="text/javascript">
-	define([
-		'jquery',
-		'underscore',
-		'backbone'], function($, _, Backbone) {
-			var mapOptions = {
-				center: new google.maps.LatLng(-34.397, 150.644),
-				zoom: 8,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("map_canvas"),
-				mapOptions);
-                // // Also works with: var yourStartLatLng = '59.3426606750, 18.0736160278';
-                // var yourStartLatLng = new google.maps.LatLng(59.3426606750, 18.0736160278);
-                // $('#map_canvas').gmap().bind('init', function(ev, map) {
-                // 	$('#map_canvas').gmap('addMarker', {'position': '57.7973333,12.0502107', 'bounds': true}).click(function() {
-                // 		$('#map_canvas').gmap('openInfoWindow', {'content': 'We have a garbage dump here!'}, this);
-                // 	});
-                // });
-                // If you dont add a constructor ($('#map_canvas').gmap({'some_option':'some_value'});) the plugin will auto initialize 
-                
-            });
-</script>
-
+	<div data-role="content" id="content">	
+		
+	</div>
 </body>
 </html>
