@@ -2,10 +2,18 @@
 <html>
 <head>
 	<title>Tidicity</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta http-equiv="cleartype" content="on">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<!-- The meta viewport tag in the head to specify how the browser should display the page zoom level and dimensions. If this isn't set, many mobile browsers will use a "virtual" page width around 900 pixels to make it work well with existing desktop sites but the screens may look zoomed out and too wide -->
 	<link rel="stylesheet" href="../css/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="../css/jquery-mobile-fluid960.min.css" />
+	<link rel="stylesheet" href="../css/jqm.slidemenu.css" />
 
 	<!-- Fix this as modules for require.js -->
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -14,6 +22,10 @@
 	<script type="text/javascript" charset="utf-8" src="../js/jquery.ui.map.full.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="cordova-2.1.1.js"></script>
 	<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
+
+	<!--JQM SlideMenu-->
+	<script src="../js/jquery.animate-enhanced.min.js"></script>
+	<script src="../js/jqm.slidemenu.js"></script>
 	
 	<script data-main="../js/main" src="../js/libs/require/require.js"></script>
 </head>
@@ -26,15 +38,30 @@
 		<li><a href="submit.html"><img src="../images/submit.png"></img></a></li>
 	</ul> -->
 
-	<div data-role="page">
+	<div id="slidemenu">
 
-		<div data-role="header">
-			<div data-role="navbar" data-iconpos="left">
+		<div id="profile">
+			<img src="../images/icon/icon_fb.png">
+			<!-- <div class="profile_info"><strong>Tegan Snyder</strong><br><small>Web &amp; Mobile Developer</small></div> -->
+		</div>
+
+		<h3>MENU</h3>
+
+		<ul>
+			<li><a href="#main_page"><img src="../images/smico3.png">Home</a></li>
+			<li><a href="#another_page"><img src="../images/smico1.png">Explore</a></li>
+			<li><a href="#another_page2"><img src="../images/smico5.png">Report</a></li>
+			<li><a href="#another_page3"><img src="../images/smico6.png">About Tidicity</a></li>
+		</ul>
+
+	</div>
+
+	<div data-role="page" id="main_page" data-theme="d">
+		<div data-role="header" data-position="fixed">
+		<div data-role="navbar">
 			    <ul>
 			        <li>
-			            <a href="/slider" data-theme="d" data-icon="back">
-			                Slider
-			            </a>
+			        	<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back" data-iconpos="notext" data-theme="d" >Slide</a>				
 			        </li>
 			        <li>
 			            <a href="/" data-theme="d" data-icon="check" class="ui-btn-active ui-state-persist">
@@ -47,13 +74,12 @@
 			            </a>
 			        </li>
 			    </ul>
-			</div>
-		</div><!-- /header -->
+		</div>
+		</div>
 
 		<div data-role="content" id="content">	
 
-
-	</div><!-- /page -->
+	</div>
 
 	
 </body>
