@@ -5,7 +5,8 @@
 // Their usage will become more apparent futher along in the tutorial.
 require.config({
   paths: {
-    jquery: 'libs/jquery/jquery-min',
+    jquery: 'libs/jquery/jquery-1.8.2.min',
+    jquerym: 'libs/jquery/jquery.mobile-1.2.0.min',
     jqueryui: 'libs/jquery-ui/jquery-ui',
     underscore: 'libs/underscore/underscore-min',
     backbone: 'libs/backbone/backbone-min',
