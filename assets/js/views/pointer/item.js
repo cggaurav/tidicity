@@ -8,9 +8,43 @@ define([
 
 		var MapPointerItemView = Backbone.View.extend({
 
-			el: $("#content"),	  
+			el: $("#content"),	
+			template: mapPointerTemplate, 
 			model : MapPointer,
 			map : null,
+
+			getIconByCategory: function(category){
+				// console.log("Category is " + category);
+				if(category == "Uncategorized")
+					return "../images/icon/icon.png";
+				else if(category == "Garbage")
+					return "../images/icon/icon.png";
+				else if(category == "Roadblock")
+					return "../images/icon/icon.png";
+				else if(category == "Graffiti")
+					return "../images/icon/icon.png";
+				else if(category == "Other")
+					return "../images/icon/icon.png";
+				else 
+					return "../images/icon/icon.png";
+			},
+
+			getContentOfMarker: function(){
+				console.log(this);
+				// console.log("Description is " + this.get('desription'));
+			},
+
+			// InfoWindow: function(marker, message) {
+	  //           var info = message;
+
+	  //           var infoWindow = new google.maps.InfoWindow({
+	  //               content: message
+	  //           });
+
+	            
+			// },
+
+			   
 
 			initialize: function(){
 				// This is a bit of a hack 
@@ -25,12 +59,19 @@ define([
 
 			render: function(){
 				var this_ = this;
-				var p = new google.maps.LatLng(this_.model.get('latitude'), this_.model.get('longitude'));	
+				var m = _.template(this_.template, this_.model.toJSON());
+				var position = new google.maps.LatLng(this_.model.get('latitude'), this_.model.get('longitude'));	
 				var marker = new google.maps.Marker({
-					position: p,
+					position: position,
 					map: this_.map,
-					title:"Hello World!"
+					icon: this_.getIconByCategory(this_.model.get("category")),
+					content: m
 				});
+				google.maps.event.addListener(marker, 'click', function () {
+	                var infoWindow = new google.maps.InfoWindow();
+	                infoWindow.setContent(marker.content);
+	                infoWindow.open(this_.map, marker);
+	            });
 				console.log("marker " + marker);
 			}
 		});
