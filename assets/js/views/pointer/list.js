@@ -67,6 +67,7 @@ define(['jquery',
 		 render: function() {
 		 	var self = this;
 			// Remove all the pointers from the view
+			self.clearPointers();
 			_.each(this.model.models, function(item) {
 				self.add(item);
 			}, this);
