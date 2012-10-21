@@ -13,7 +13,7 @@ define([
     }
   });
     var initialize = function(){
-      var app_router = new AppRouter;
+      window.app_router = new AppRouter;
     // app_router.on('route:showMap', function(){
     //   require(['views/map'], function(ProjectListView) {
     //     // Call render on the module we loaded in via the dependency array

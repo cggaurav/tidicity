@@ -45,6 +45,7 @@ define([
 				var m = this.$el.find('#map_canvas');
 			    this.map = new google.maps.Map(m.get(0), this.mapOptions);
 			    window.map = this.map;
+			    console.log("Map Created");
 				//	$('#content').replaceWith(this.map);
 				// var map = new google.maps.Map(this.$el.find("#map_canvas"),this.mapOptions);
 			}
