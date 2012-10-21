@@ -28,6 +28,15 @@
 	<script src="../js/jquery.animate-enhanced.min.js"></script>
 	<script src="../js/jqm.slidemenu.js"></script>
 	<script data-main="../js/main" src="../js/libs/require/require.js"></script>
+	<script type="text/javascript">
+	// $(document).bind("mobileinit", function () {
+	// 	$.mobile.ajaxEnabled = false;
+	// 	$.mobile.linkBindingEnabled = false;
+	// 	$.mobile.hashListeningEnabled = false;
+	// 	$.mobile.pushStateEnabled = false;
+	// 	$.mobile.changePage.defaults.changeHash = false;
+	// });
+</script>
 </head>
 <body>
 
@@ -58,28 +67,31 @@
 
 	<div data-role="page" id="main_page" data-theme="d">
 		<div data-role="header" data-position="fixed">
-		<div data-role="navbar">
-			    <ul>
-			        <li>
-			        	<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back" data-iconpos="notext" data-theme="d" >Slide</a>				
-			        </li>
-			        <li>
-			            <a href="/" data-theme="d" data-icon="check" class="ui-btn-active ui-state-persist">
-			            	Tidicity
-			            </a>
-			        </li>
-			        <li>
-			            <a href="/submit" data-theme="d" data-icon="arrow-r">
-			                Report
-			            </a>
-			        </li>
-			    </ul>
-		</div>
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back" data-iconpos="notext" data-theme="d" >Slide</a>				
+					</li>
+					<li>
+						<a href="/" data-theme="d" data-icon="check" class="ui-btn-active ui-state-persist">
+							Tidicity
+						</a>
+					</li>
+					<li>
+						<a href="/submit" data-theme="d" data-icon="arrow-r">
+							Report
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 
-		<div data-role="content" id="content">	
+		<div data-role="content" id="content">	</div>
 
 	</div>
+	<!-- Start of second page -->
+	<div data-role="page" id="new">
+	</div><!-- /page -->
 
 	
 </body>
