@@ -15,6 +15,9 @@ define(['jquery', 'underscore', 'backbone'],
 			},
 			initialize: function(){
 				console.log("MapPointer model has been defined.");
+			},
+			url: function(){
+				return "http://tidicity.herokuapp.com/report"
 			}
 		});
 
