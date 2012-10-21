@@ -32,7 +32,7 @@ define(['jquery',
 			this.model.bind("add", this.add);
 
 			this.render();
-			console.log('this view is initialized');
+			console.log('[ListView] this view is initialized');
 		},
 
 		/**
