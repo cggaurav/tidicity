@@ -89,16 +89,19 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 			console.log(this.model);
 
 			this.model.save(
-				// null,
-				// {
-				// 	success: function(model, response) {
-				// 		console.log("Successfully saved the model");
-				// 	},
-				// 	error: function(model, response) {
-				// 		console.log("could not save the model");
-				// 		console.log(response);
-				// 	}
-				// }
+				null,
+				{
+					success: function(model, response) {
+						console.log("Successfully saved the model");
+						// Navigate to a different scene
+						alert("Successfully Saved");
+						window.app_router.navigate('');
+					},
+					error: function(model, response) {
+						console.log("could not save the model");
+						console.log(response);
+					}
+				}
 			);
 		}
 	});
