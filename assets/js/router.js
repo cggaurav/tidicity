@@ -37,6 +37,13 @@ define([
       // We have no matching route, lets display the home page 
         var mainHomeView = new MainHomeView();
         mainHomeView.render();
+
+        // Render a point
+        require(['views/pointer/item', 'models/pointer/item'], function(PointerView, PointerModel) {
+          var x = new PointerModel();
+          var pointerView = new PointerView({model: x});
+          pointerView.render();
+        });
       });
     });
     Backbone.history.start();

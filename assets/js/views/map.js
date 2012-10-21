@@ -2,7 +2,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/map.html'], function($, _, Backbone,mainHomeTemplate) {
+	'text!templates/map.html', 'models/pointer/item'], function($, _, Backbone,mainHomeTemplate, MapPointer) {
 
 		var MapView = Backbone.View.extend({
 			mapOptions: {
@@ -14,9 +14,13 @@ define([
 			el: $("#content"),	  
 			map : null,
 			initialize: function(){
+				var x = new MapPointer();
 				this.$el.html(mainHomeTemplate);
 				var m = this.$el.find('#map_canvas');
 			    this.map = new google.maps.Map(m.get(0), this.mapOptions);
+			    // Put this in the GLOBAL
+			    window.map = this.map;
+			    
 			    this.render();
 			},
 
