@@ -15,6 +15,7 @@ define(['jquery',
 
 			el: $("#new"),
 
+			// First page has index = 1
 			index: 1,
 			
 			templateStep1: step1Template,
