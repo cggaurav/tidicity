@@ -65,12 +65,14 @@ define([
 					position: position,
 					map: this_.map,
 					icon: this_.getIconByCategory(this_.model.get("category")),
-					content: m
+					content: m,
+					visible: true
 				});
 
 				google.maps.event.addListener(marker, "click", function() {
 					// console.log(marker.getPosition());	
-					var infoBox = new InfoBox({latlng: marker.getPosition(), map: this_.map, content: m});
+					var infoBox = new InfoBox();
+					infoBox.setContent(marker.content);
 					infoBox.open(this_.map,marker);
 				});
 				// google.maps.event.addListener(marker, 'click', function () {

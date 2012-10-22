@@ -85,15 +85,21 @@ function InfoBox(opt_opts) {
   //
   this.content_ = opt_opts.content || "";
   this.disableAutoPan_ = opt_opts.disableAutoPan || false;
-  this.maxWidth_ = opt_opts.maxWidth || 0;
+  this.maxWidth_ = opt_opts.maxWidth || 200;
   this.pixelOffset_ = opt_opts.pixelOffset || new google.maps.Size(0, 0);
   this.position_ = opt_opts.position || new google.maps.LatLng(0, 0);
   this.zIndex_ = opt_opts.zIndex || null;
 
   // Additional options (unique to InfoBox):
   //
-  this.boxStyle_ = opt_opts.boxStyle || {};
-  this.closeBoxMargin_ = opt_opts.closeBoxMargin || "2px";
+  this.boxStyle_ = opt_opts.boxStyle || {
+    background: "white"
+    ,border: "1px solid black"
+    ,textAlign: "center"
+    ,fontSize: "8pt"
+    ,width: "280px"
+  };
+  this.closeBoxMargin_ = opt_opts.closeBoxMargin || "4px";
   this.closeBoxURL_ = opt_opts.closeBoxURL || "http://www.google.com/intl/en_us/mapfiles/close.gif";
   if (opt_opts.closeBoxURL === "") {
     this.closeBoxURL_ = "";
