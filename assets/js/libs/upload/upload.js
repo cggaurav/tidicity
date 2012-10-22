@@ -41,7 +41,9 @@ define(['jquery'], function(jquery) {
          // Let's build a FormData object
          var fd = new FormData();
          fd.append("image", file); // Append the file
+         alert(file);
          fd.append("key", API_KEY);
+         alert(API_KEY);
          // Create the XHR (Cross-Domain XHR FTW!!!)
          var xhr = new XMLHttpRequest();
          xhr.open("POST", "http://api.imgur.com/2/upload.json"); // Boooom!

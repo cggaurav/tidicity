@@ -78,7 +78,7 @@ function($, _, Backbone,
 			var self = this;
 			this.model.set('category', $('#category').val());
 			this.model.set('description', $('#description').val());
-			Uploader.upload(self.image_data, self.onImageUploaded);
+			Uploader.upload(window.image_data, self.onImageUploaded);
 			// Redirect
 			this.index = 2;
 			//this.render();
@@ -134,7 +134,7 @@ function($, _, Backbone,
 
 		onImageSelected: function(image_data, message) {
 			var self = this;
-			self.image_data = image_data;
+			window.image_data = image_data;
 			if(message.length > 1) {
 				$('#attachment-area').css('display', 'block');
 				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
@@ -146,7 +146,7 @@ function($, _, Backbone,
 		},
 
 		onImageUploaded: function(image_url, message) {
-			if(image_url.length > 1) {
+			if(image_url) {
 				alert('Image uploaded' + image_url);
 			} else {
 				alert('image failed to upload');
