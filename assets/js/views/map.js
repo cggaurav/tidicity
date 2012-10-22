@@ -2,7 +2,8 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/map.html', 'models/pointer/item'], function($, _, Backbone,mainHomeTemplate, MapPointer) {
+	'text!templates/map.html', 'models/pointer/item'], 
+	function($, _, Backbone,mainHomeTemplate, MapPointer) {
 
 		var MapView = Backbone.View.extend({
 
