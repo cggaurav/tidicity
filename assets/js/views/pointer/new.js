@@ -1,20 +1,17 @@
-define(['jquery', 'underscore', 'backbone', 'jquerym', 
-	'models/pointer/item',
-	'text!templates/pointer/new.html', 
-	'text!templates/pointer/postPointer/step1.html', 
-	'text!templates/pointer/postPointer/step2.html'],
-	// Uploader
-	function($, _, Backbone, jquerym, 
-		PointerModel, 
-		postMapPointerTemplate, 
-		step1Template, 
-		step2Template) {
+define(['jquery', 'underscore', 'backbone', 'jqueryui', 'models/pointer/item', 'text!templates/pointer/new.html', 'text!templates/pointer/postPointer/step1.html', 'text!templates/pointer/postPointer/step2.html', 'upload', 'simpleDialog'],
+// Uploader
+
+function($, _, Backbone, 
+	jQueryUI, PointerModel, postMapPointerTemplate, step1Template, step2Template, Uploader, simpledialog2) {
 
 	var PostPointerView = Backbone.View.extend({
 
 		el: $("#new"),
 
 		model: PointerModel,
+
+		// Temporary vars needed to store shit
+		image_data: '',
 
 		// First page has index = 1
 		index: 1,
@@ -31,10 +28,10 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 		},
 
 		events: {
-			'click .gotoStep1'		: 'clickOnGotoStep1',
-			'click .selectImage'	: 'clickOnSelectImage',
-			'click .gotoStep2'		: 'clickOnGotoStep2',
-			'click .saveReport'		: 'clickOnSaveReport'
+			'click .gotoStep1': 'clickOnGotoStep1',
+			'click .selectImage': 'clickOnSelectImage',
+			'click .gotoStep2': 'clickOnGotoStep2',
+			'click .saveReport': 'clickOnSaveReport'
 		},
 
 		render: function() {
@@ -91,26 +88,59 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 			console.log(this.model);
 
 			this.model.save(
-				null,
-				{
-					success: function(model, response) {
-						console.log("Successfully saved the model");
-						// Navigate to a different scene
-						alert("Successfully Saved");
-						window.app_router.navigate('');
-					},
-					error: function(model, response) {
-						console.log("could not save the model");
-						console.log(response);
-					}
+			null, {
+				success: function(model, response) {
+					console.log("Successfully saved the model");
+					// Navigate to a different scene
+					alert("Successfully Saved");
+					window.app_router.navigate('');
+				},
+				error: function(model, response) {
+					console.log("could not save the model");
+					console.log(response);
 				}
-			);
+			});
 		},
 
 		clickOnSelectImage: function() {
+			var self = this;
 			// PHONE GAP Associated Settings
-			
+			$('<div>').simpledialog2({
+				mode: 'button',
+				headerText: 'Attach Photo',
+				headerClose: true,
+				buttonPrompt: 'Please Choose One',
+				buttons: {
+					'Take a Photo': {
+						click: function() {
+							Uploader.getPhotoFromCamera(self.onImageSelected);
+							//takePicture();
+						},
+						theme: "d"
+					},
+					//Comment out for Blackberry Porting
+					'Choose from Library': {
+						click: function() {
+							Uploader.getPhotoFromLibrary(self.onImageSelected);
+						},
+						theme: "d"
+					}
+				}
+			});
+		},
+
+		onImageSelected: function(image_data, message) {
+			self.imageData = image_data;
+			if(message.length > 1) {
+				$('#attachment-area').css('display', 'block');
+				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
+				//router.postQuestionView.model.set({attachmentPic:image_data});
+				//$('#attachment-img').attr('src',image_data);
+				//$('#attachment-img-bk').attr('src',image_data);
+			}
 		}
+
+
 	});
 
 	return PostPointerView;
