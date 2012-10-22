@@ -145,8 +145,9 @@ function($, _, Backbone,
 		},
 
 		onImageUploaded: function(image_url, message) {
-			if(image_url) {
+			if(image_url.length > 1) {
 				alert('Image uploaded' + image_url);
+				this.model.set('image_url', image_url);
 			} else {
 				alert('image failed to upload');
 			}

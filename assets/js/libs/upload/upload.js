@@ -50,7 +50,8 @@ define(['jquery'], function(jquery) {
          xhr.onload = function() {
             // Big win!
             // The URL of the image is:
-            var img_url = JSON.parse(xhr.responseText).upload.links.original;
+            var img_url = "";
+            img_url = JSON.parse(xhr.responseText).upload.links.original;
             console.log("Image url of the uploaded image" + img_url);
             // other flavors of the image
             /***
@@ -85,7 +86,10 @@ define(['jquery'], function(jquery) {
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
             quality: 50,
             destinationType: destinationType.DATA_URL,
-            sourceType: pictureSource.PHOTOLIBRARY
+            sourceType: pictureSource.PHOTOLIBRARY,
+            allowEdit: true,
+            targetWidth: 400,
+            targetHeight: 350
          });
       },
 
@@ -102,8 +106,9 @@ define(['jquery'], function(jquery) {
             quality: 40,
             destinationType: destinationType.DATA_URL,
             sourceType: pictureSource.CAMERA,
-            targetWidth: 100,
-            targetHeight: 100 
+            allowEdit: true,
+            targetWidth: 400,
+            targetHeight: 350
          });
       },
 
