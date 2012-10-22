@@ -34,6 +34,7 @@ define(['jquery'], function(jquery) {
          Upload.callback_func = callback_func;
          // Checking if the file selected 
          if(!file || file.length < 1) {
+            console.log("Error no File");
             Upload.callback_func(null, WRONG_FILE_FORMAT_ERROR);
          }
 
@@ -98,9 +99,11 @@ define(['jquery'], function(jquery) {
          destinationType = navigator.camera.DestinationType;
 
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
-            quality: 50,
+            quality: 40,
             destinationType: destinationType.DATA_URL,
-            sourceType: pictureSource.CAMERA
+            sourceType: pictureSource.CAMERA,
+            targetWidth: 100,
+            targetHeight: 100 
          });
       },
 
