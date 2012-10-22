@@ -78,10 +78,9 @@ function($, _, Backbone,
 			var self = this;
 			this.model.set('category', $('#category').val());
 			this.model.set('description', $('#description').val());
-			Uploader.upload(window.image_data, self.onImageUploaded);
 			// Redirect
 			this.index = 2;
-			//this.render();
+			this.render();
 		},
 
 		clickOnSaveReport: function() {
@@ -134,11 +133,11 @@ function($, _, Backbone,
 
 		onImageSelected: function(image_data, message) {
 			var self = this;
-			window.image_data = image_data;
+			self.image_data = image_data;
 			if(message.length > 1) {
 				$('#attachment-area').css('display', 'block');
 				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
-				
+				Uploader.upload(self.image_data, self.onImageUploaded);
 				//router.postQuestionView.model.set({attachmentPic:image_data});
 				//$('#attachment-img').attr('src',image_data);
 				//$('#attachment-img-bk').attr('src',image_data);
