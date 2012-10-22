@@ -50,6 +50,7 @@ define(['jquery'], function(jquery) {
             // The URL of the image is:
             var img_url = JSON.parse(xhr.responseText).upload.links.original;
             console.log("Image url of the uploaded image" + img_url);
+            alert(img_url);
             // other flavors of the image
             /***
             "original": "http:\/\/imgur.com\/cSNjk.jpg",
