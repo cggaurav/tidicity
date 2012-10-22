@@ -67,11 +67,17 @@ define([
 					icon: this_.getIconByCategory(this_.model.get("category")),
 					content: m
 				});
-				google.maps.event.addListener(marker, 'click', function () {
-	                var infoWindow = new google.maps.InfoWindow();
-	                infoWindow.setContent(marker.content);
-	                infoWindow.open(this_.map, marker);
-	            });
+
+				google.maps.event.addListener(marker, "click", function() {
+					// console.log(marker.getPosition());	
+					var infoBox = new InfoBox({latlng: marker.getPosition(), map: this_.map, content: m});
+					infoBox.open(this_.map,marker);
+				});
+				// google.maps.event.addListener(marker, 'click', function () {
+	   //              var infoWindow = new google.maps.InfoWindow();
+	   //              infoWindow.setContent(marker.content);
+	   //              infoWindow.open(this_.map, marker);
+	   //          });
 				console.log("marker " + marker);
 			}
 		});

@@ -10,7 +10,7 @@ $(document).on("pageinit", function(e){
 		}
 	});
 
-	$(document).on("swipeleft swiperight",".ui-page-active", function(e){
+	$($('div:not(#map_canvas)')).on("swipeleft swiperight",".ui-page-active", function(e){
 		console.log('b');
 		e.stopImmediatePropagation();
 		e.preventDefault();
@@ -52,7 +52,7 @@ function slidemenu(sm, only_close) {
 		$(".ui-page-active").css('left', '240px');
 		sm.data('slideopen', true);
 		if ($(".ui-page-active :jqmData(role='header')").data('position') == 'fixed') {
-			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '250px');
+			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '240px');
 		} else {
 			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '10px');
 		}
