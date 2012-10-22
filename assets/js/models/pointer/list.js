@@ -9,7 +9,12 @@ define(['jquery',
 
 			initialize: function(){
 				console.log('this model has been initialized');	
+			},
+
+			url: function() {
+				return "http://tidicity.herokuapp.com/report";
 			}
+
 		});
 
 		return MapPointerList;
