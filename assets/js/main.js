@@ -10,7 +10,7 @@ require.config({
     jqueryui: 'libs/jquery-ui/jquery-ui',
     underscore: 'libs/underscore/underscore-min',
     backbone: 'libs/backbone/backbone-min',
-    templates: '../templates',
+    templates: '../templates'
   }
 
 });

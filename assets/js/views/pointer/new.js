@@ -2,7 +2,8 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 	'models/pointer/item',
 	'text!templates/pointer/new.html', 
 	'text!templates/pointer/postPointer/step1.html', 
-	'text!templates/pointer/postPointer/step2.html'], 
+	'text!templates/pointer/postPointer/step2.html'],
+	// Uploader
 	function($, _, Backbone, jquerym, 
 		PointerModel, 
 		postMapPointerTemplate, 
@@ -30,9 +31,10 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 		},
 
 		events: {
-			'click .gotoStep1': 'clickOnGotoStep1',
-			'click .gotoStep2': 'clickOnGotoStep2',
-			'click .saveReport': 'clickOnSaveReport'
+			'click .gotoStep1'		: 'clickOnGotoStep1',
+			'click .selectImage'	: 'clickOnSelectImage',
+			'click .gotoStep2'		: 'clickOnGotoStep2',
+			'click .saveReport'		: 'clickOnSaveReport'
 		},
 
 		render: function() {
@@ -103,6 +105,11 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 					}
 				}
 			);
+		},
+
+		clickOnSelectImage: function() {
+			// PHONE GAP Associated Settings
+			
 		}
 	});
 
