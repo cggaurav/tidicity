@@ -131,6 +131,17 @@ function($, _, Backbone,
 			});
 		},
 
+		onImageUploaded: function(image_url, message) {
+			alert("111");
+			console.log("Called" + image_url);
+			if(image_url.length > 1) {
+				alert('Image uploaded' + image_url);
+				this.model.set('image_url', image_url);
+			} else {
+				alert('image failed to upload');
+			}
+		},
+		
 		onImageSelected: function(image_data, message) {
 			var self = this;
 			self.image_data = image_data;
@@ -142,17 +153,7 @@ function($, _, Backbone,
 				//$('#attachment-img').attr('src',image_data);
 				//$('#attachment-img-bk').attr('src',image_data);
 			}
-		},
-
-		onImageUploaded: function(image_url, message) {
-			if(image_url.length > 1) {
-				alert('Image uploaded' + image_url);
-				this.model.set('image_url', image_url);
-			} else {
-				alert('image failed to upload');
-			}
 		}
-
 
 	});
 

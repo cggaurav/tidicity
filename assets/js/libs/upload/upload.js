@@ -63,6 +63,7 @@ define(['jquery'], function(jquery) {
             */
             // finally callback 
             console.log("Uploaded image url " + img_url);
+            console.log(Upload.callback_func);
             if(Upload.callback_func) {
                Upload.callback_func(img_url, "");
             }
