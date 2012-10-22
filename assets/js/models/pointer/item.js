@@ -3,18 +3,18 @@ define(['jquery', 'underscore', 'backbone'],
 
 		var MapPointer = Backbone.Model.extend({
 			defaults: {
-				category: 'Uncategorized',
-				description: 'I love Tidicity!',
-				latitude: 1.3,
-				longitude: 103.7,
-				altitude : null,
-				priority: 2, 
-				status: 'reported',
-				accuracy : 54,
-				altitude_accuracy: null,
-				timestamp: null,
-				img_url: '',
-				user_id: '1'
+				// category: 'Uncategorized',
+				// description: 'I love Tidicity!',
+				// latitude: 1.3,
+				// longitude: 103.7,
+				// altitude : null,
+				// priority: 2, 
+				// status: 'reported',
+				// accuracy : 54,
+				// altitude_accuracy: null,
+				// timestamp: null,
+				// img_url: '',
+				// user_id: '1'
 			},
 			initialize: function(){
 				console.log("MapPointer model has been defined.");

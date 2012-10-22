@@ -2,15 +2,13 @@ define(['jquery', 'underscore', 'backbone', 'jquerym',
 	'models/pointer/item',
 	'text!templates/pointer/new.html', 
 	'text!templates/pointer/postPointer/step1.html', 
-	'text!templates/pointer/postPointer/step2.html'], 
+	'text!templates/pointer/postPointer/step2.html'],
 	// Uploader
-	'upload'
 	function($, _, Backbone, jquerym, 
 		PointerModel, 
 		postMapPointerTemplate, 
 		step1Template, 
-		step2Template,
-		upload) {
+		step2Template) {
 
 	var PostPointerView = Backbone.View.extend({
 
