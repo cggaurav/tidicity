@@ -34,6 +34,7 @@ define(['jquery'], function(jquery) {
          Upload.callback_func = callback_func;
          // Checking if the file selected 
          if(!file || file.length < 1) {
+            console.log("Error no File");
             Upload.callback_func(null, WRONG_FILE_FORMAT_ERROR);
          }
 
@@ -41,6 +42,7 @@ define(['jquery'], function(jquery) {
          // Let's build a FormData object
          var fd = new FormData();
          fd.append("image", file); // Append the file
+         console.log(file);
          fd.append("key", API_KEY);
          // Create the XHR (Cross-Domain XHR FTW!!!)
          var xhr = new XMLHttpRequest();
@@ -48,7 +50,8 @@ define(['jquery'], function(jquery) {
          xhr.onload = function() {
             // Big win!
             // The URL of the image is:
-            var img_url = JSON.parse(xhr.responseText).upload.links.original;
+            var img_url = "";
+            img_url = JSON.parse(xhr.responseText).upload.links.original;
             console.log("Image url of the uploaded image" + img_url);
             // other flavors of the image
             /***
@@ -60,6 +63,7 @@ define(['jquery'], function(jquery) {
             */
             // finally callback 
             console.log("Uploaded image url " + img_url);
+            console.log(Upload.callback_func);
             if(Upload.callback_func) {
                Upload.callback_func(img_url, "");
             }
@@ -83,7 +87,10 @@ define(['jquery'], function(jquery) {
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
             quality: 50,
             destinationType: destinationType.DATA_URL,
-            sourceType: pictureSource.PHOTOLIBRARY
+            sourceType: pictureSource.PHOTOLIBRARY,
+            allowEdit: true,
+            targetWidth: 400,
+            targetHeight: 350
          });
       },
 
@@ -97,9 +104,12 @@ define(['jquery'], function(jquery) {
          destinationType = navigator.camera.DestinationType;
 
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
-            quality: 50,
+            quality: 40,
             destinationType: destinationType.DATA_URL,
-            sourceType: pictureSource.CAMERA
+            sourceType: pictureSource.CAMERA,
+            allowEdit: true,
+            targetWidth: 400,
+            targetHeight: 350
          });
       },
 

@@ -75,6 +75,7 @@ function($, _, Backbone,
 
 		clickOnGotoStep2: function() {
 			// Do some saving
+			var self = this;
 			this.model.set('category', $('#category').val());
 			this.model.set('description', $('#description').val());
 			// Redirect
@@ -113,6 +114,7 @@ function($, _, Backbone,
 				buttons: {
 					'Take a Photo': {
 						click: function() {
+							//self.onImageSelected("R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==", "Sucess");
 							Uploader.getPhotoFromCamera(self.onImageSelected);
 							//takePicture();
 						},
@@ -129,17 +131,29 @@ function($, _, Backbone,
 			});
 		},
 
+		onImageUploaded: function(image_url, message) {
+			alert("111");
+			console.log("Called" + image_url);
+			if(image_url.length > 1) {
+				alert('Image uploaded' + image_url);
+				this.model.set('image_url', image_url);
+			} else {
+				alert('image failed to upload');
+			}
+		},
+		
 		onImageSelected: function(image_data, message) {
-			self.imageData = image_data;
+			var self = this;
+			self.image_data = image_data;
 			if(message.length > 1) {
 				$('#attachment-area').css('display', 'block');
 				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
+				Uploader.upload(self.image_data, self.onImageUploaded);
 				//router.postQuestionView.model.set({attachmentPic:image_data});
 				//$('#attachment-img').attr('src',image_data);
 				//$('#attachment-img-bk').attr('src',image_data);
 			}
 		}
-
 
 	});
 
