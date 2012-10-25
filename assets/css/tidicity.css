@@ -1,0 +1,29 @@
+#navbar{
+  background: url(../images/UI/header.png);
+  background-repeat:repeat-y;
+  background-position:center center;
+  background-attachment:scroll;
+  background-size:100% 100%;
+}
+
+.ui-btn-inner{
+  background: url(../images/UI/header.png);
+  background-repeat:repeat-y;
+  background-position:center center;
+  background-attachment:scroll;
+  background-size:100% 100%;
+}
+
+header > li{
+  float: top;
+  width: 30px;
+  height: 30px;
+}
+
+#profile{
+  background-size:100% 100%;
+  -webkit-background-size:100% 100%;        /*  Safari  */
+  -khtml-background-size:100% 100%;         /*  Konqueror  */
+  -moz-background-size:100% 100%;           /*  Firefox  */
+
+}

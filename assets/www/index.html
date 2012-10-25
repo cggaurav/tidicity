@@ -11,10 +11,10 @@
 	<meta http-equiv="cleartype" content="on">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<!-- The meta viewport tag in the head to specify how the browser should display the page zoom level and dimensions. If this isn't set, many mobile browsers will use a "virtual" page width around 900 pixels to make it work well with existing desktop sites but the screens may look zoomed out and too wide -->
-	<link rel="stylesheet" href="../css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="../css/jquery.mobile-1.2.0.css" />
 	<link rel="stylesheet" href="../css/jquery-mobile-fluid960.min.css" />
 	<link rel="stylesheet" href="../css/jqm.slidemenu.css" />
-	<link rel="stylesheet" href="../css/custom.css" />
+	<link rel="stylesheet" href="../css/tidicity.css" />
 
 	<!-- Fix this as modules for require.js -->
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
@@ -41,18 +41,10 @@
 </script>
 </head>
 <body>
-
-
-	<!-- <ul>
-		<li><a href="slider.html"><img src="../images/slider.png"></img></a></li>
-		<li><img src="../images/header.png"></img></li>
-		<li><a href="submit.html"><img src="../images/submit.png"></img></a></li>
-	</ul> -->
-
 	<div id="slidemenu">
 
 		<div id="profile" align="center">
-			<img src="../images/icon/icon_fb.png"  >
+			<img style="heigth:60px;width:240px" src="../images/logo/slider_logo.png">
 			<!-- <div class="profile_info"><strong>Tegan Snyder</strong><br><small>Web &amp; Mobile Developer</small></div> -->
 		</div>
 
@@ -68,20 +60,22 @@
 	</div>
 
 	<div data-role="page" id="main_page" data-theme="d">
-		<div data-role="header" data-position="fixed">
-			<div data-role="navbar">
+		<div data-role="header" data-position="fixed" id="header" data-theme="d">
+			<div data-role="navbar" id="navbar">
 				<ul>
 					<li>
-						<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back" data-theme="d" >Slide</a>				
+						<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back">
+							<img id="headericons" src="../images/UI/menu.png">
+						</a>				
 					</li>
 					<li>
-						<a href="/" data-theme="d" data-icon="check" class="ui-btn-active ui-state-persist">
-							Tidicity
+						<a href="/" class="ui-btn-active ui-state-persist">
+							<img id="headericons" src="../images/icon/icon_fb.png"  >
 						</a>
 					</li>
 					<li>
-						<a href="#new" data-theme="d" data-icon="arrow-r">
-							Report
+						<a href="#new">
+							<img id="headericons" src="../images/UI/add.png">
 						</a>
 					</li>
 				</ul>
