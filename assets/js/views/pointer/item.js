@@ -18,13 +18,15 @@ define([
 				if(category == "Uncategorized")
 					return "../images/icon/icon.png";
 				else if(category == "Garbage")
-					return "../images/icon/icon.png";
+					return "../images/icon/garbage.png";
 				else if(category == "Roadblock")
-					return "../images/icon/icon.png";
+					return "../images/icon/roadblock.png";
 				else if(category == "Graffiti")
-					return "../images/icon/icon.png";
+					return "../images/icon/graffiti.png";
+				else if(category == "Water Logging")
+					return "../images/icon/water.png";
 				else if(category == "Other")
-					return "../images/icon/icon.png";
+					return "../images/icon/other.png";
 				else 
 					return "../images/icon/icon.png";
 			},
