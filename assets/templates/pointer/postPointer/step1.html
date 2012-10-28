@@ -7,22 +7,18 @@
 	<form>
 		<p>
 			<label for="category">Enter Category</label>
-			<input type="text" id="category">
-		</p>
-		<p>
-			<label for="description">Enter Description</label>		
-			<input type="text" id="description">
+			<select name="category" id="category" placeholder="choose one..">
+				<option value="Uncategorized">Uncategorized</option>
+				<option value="Garbage">Garbage</option>
+				<option value="Roadblock">Roadblock</option>
+				<option value="Graffiti">Graffiti</option>
+				<option value="Water Logging">Water Logging</option>
+				<option value="Other">Other</option>
+			</select>
 		</p>
 	</form>	
 	<a href='#' data-role="button" class='gotoStep2'>Next</a>
 </div><!-- /content -->
-
-<a href='#' data-role="button" class='selectImage'>Image</a>
-
-<div id="attachment-area">
-	<img id="attachment-img" src="http://lorempixel.com/100/100"/>
-</div>
-
 <div data-role="footer">
 	<h4>Page Footer</h4>
 </div><!-- /footer -->
