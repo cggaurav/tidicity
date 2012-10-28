@@ -1,8 +1,20 @@
-define(['jquery', 'underscore', 'backbone', 'jqueryui', 'models/pointer/item', 'text!templates/pointer/new.html', 'text!templates/pointer/postPointer/step1.html', 'text!templates/pointer/postPointer/step2.html', 'upload', 'simpleDialog'],
+define(['jquery', 'underscore', 'backbone', 'jqueryui', 
+	'models/pointer/item', 
+	'text!templates/pointer/new.html', 
+	'text!templates/pointer/postPointer/step1.html', 
+	'text!templates/pointer/postPointer/step2.html', 
+	'text!templates/pointer/postPointer/step3.html', 
+	'upload', 
+	'simpleDialog'],
 // Uploader
 
 function($, _, Backbone, 
-	jQueryUI, PointerModel, postMapPointerTemplate, step1Template, step2Template, Uploader, simpledialog2) {
+	jQueryUI, PointerModel, 
+	postMapPointerTemplate, 
+	step1Template, 
+	step2Template, 
+	step3Template, 
+	Uploader, simpledialog2) {
 
 	var PostPointerView = Backbone.View.extend({
 
@@ -20,6 +32,8 @@ function($, _, Backbone,
 
 		templateStep2: step2Template,
 
+		templateStep3: step3Template,
+
 		template: postMapPointerTemplate,
 
 		initialize: function() {
@@ -31,6 +45,7 @@ function($, _, Backbone,
 			'click .gotoStep1': 'clickOnGotoStep1',
 			'click .selectImage': 'clickOnSelectImage',
 			'click .gotoStep2': 'clickOnGotoStep2',
+			'click .gotoStep3': 'clickOnGotoStep3',
 			'click .saveReport': 'clickOnSaveReport'
 		},
 
@@ -39,9 +54,11 @@ function($, _, Backbone,
 			if(this.index == 1) {
 				// Render Step 1
 				this.renderStep1();
-			} else {
+			} else if (this.index == 2) {
 				// Render Step 2
 				this.renderStep2();
+			} else {
+				this.renderStep3();
 			}
 			// Need to recreate the page once the thing is loaded
 			this.$el.page('destroy').page();
@@ -63,6 +80,12 @@ function($, _, Backbone,
 			this.$el.html(compiledHtml);
 		},
 
+		renderStep3: function() {
+			var self = this;
+			var compiledHtml = _.template(self.templateStep3, {});
+			this.$el.html(compiledHtml);
+		},
+
 		//
 		// EVENTS HANDLERS 
 		// 
@@ -77,21 +100,28 @@ function($, _, Backbone,
 			// Do some saving
 			var self = this;
 			this.model.set('category', $('#category').val());
-			this.model.set('description', $('#description').val());
 			// Redirect
 			this.index = 2;
+			this.render();
+		},
+
+		clickOnGotoStep3: function() {
+			var self = this;
+			this.index = 3;
 			this.render();
 		},
 
 		clickOnSaveReport: function() {
 			this.model.set('latitude', $('#latitude').val());
 			this.model.set('longitude', $('#longitude').val());
+			this.model.set('timestamp', new Date().getTime());
+
 			console.log(this.model);
 
 			this.model.save(
-			null, {
-				success: function(model, response) {
-					console.log("Successfully saved the model");
+				null, {
+					success: function(model, response) {
+						console.log("Successfully saved the model");
 					// Navigate to a different scene
 					alert("Successfully Saved");
 					window.app_router.navigate('');
@@ -132,11 +162,10 @@ function($, _, Backbone,
 		},
 
 		onImageUploaded: function(image_url, message) {
-			alert("111");
-			console.log("Called" + image_url);
+			console.log("[onImageUploaded] Image Url" + image_url);
 			if(image_url.length > 1) {
 				alert('Image uploaded' + image_url);
-				this.model.set('image_url', image_url);
+				this.model.set('img_url', image_url);
 			} else {
 				alert('image failed to upload');
 			}
@@ -157,5 +186,5 @@ function($, _, Backbone,
 
 	});
 
-	return PostPointerView;
+return PostPointerView;
 });
