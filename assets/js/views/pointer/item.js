@@ -36,18 +36,6 @@ define([
 				// console.log("Description is " + this.get('desription'));
 			},
 
-			// InfoWindow: function(marker, message) {
-	  //           var info = message;
-
-	  //           var infoWindow = new google.maps.InfoWindow({
-	  //               content: message
-	  //           });
-
-	            
-			// },
-
-			   
-
 			initialize: function(){
 				// This is a bit of a hack 
 				// Later we will change it 

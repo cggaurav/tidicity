@@ -1718,7 +1718,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-grid-a > :nth-child(n) { width: 50%; margin-right: -.5px; }
 .ui-grid-a .ui-block-a { clear: left; }
 /* grid b: 33/33/33 */
-.ui-grid-b .ui-block-a, .ui-grid-b .ui-block-b, .ui-grid-b .ui-block-c { width: 33.25%; }
+.ui-grid-b .ui-block-a, .ui-grid-b .ui-block-b, .ui-grid-b .ui-block-c { width: 33.25%; max-height: 72px; }
 .ui-grid-b > :nth-child(n) { width: 33.333%; margin-right: -.5px; }
 .ui-grid-b .ui-block-a { clear: left; }
 /* grid c: 25/25/25/25 */

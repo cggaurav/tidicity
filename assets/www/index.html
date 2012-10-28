@@ -44,7 +44,10 @@
 	<div id="slidemenu">
 
 		<div id="profile" align="center">
-			<img style="heigth:60px;width:240px" src="../images/logo/slider_logo.png">
+			<!-- 240x71px -->
+			<div class="morphong-tinting">
+				<img class="morphing-tinting" src="../images/logo/slider_logo.png">
+			</div>
 			<!-- <div class="profile_info"><strong>Tegan Snyder</strong><br><small>Web &amp; Mobile Developer</small></div> -->
 		</div>
 
@@ -52,9 +55,8 @@
 
 		<ul>
 			<li><a href="#main_page"><img src="../images/smico3.png">Home</a></li>
-			<li><a href="#another_page"><img src="../images/smico4.png">Explore</a></li>
-			<li><a href="#another_page2"><img src="../images/smico5.png">Report</a></li>
-			<li><a href="#another_page3"><img src="../images/smico6.png">About Tidicity</a></li>
+			<li><a href="#new"><img src="../images/smico5.png">Report</a></li>
+			<li><a href="#about"><img src="../images/smico6.png">About Tidicity</a></li>
 		</ul>
 
 	</div>
@@ -64,17 +66,18 @@
 			<div data-role="navbar" id="navbar">
 				<ul>
 					<li>
-						<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="back">
+						<a href="#" data-slidemenu="#slidemenu" data-slideopen="false" data-corners="false" data-icon="custom" class="ui-btn-inline">
 							<img id="headericons" src="../images/UI/menu.png">
 						</a>				
 					</li>
 					<li>
-						<a href="/" class="ui-btn-active ui-state-persist">
-							<img id="headericons" src="../images/icon/icon_fb.png"  >
-						</a>
+							<a href="/" class="ui-li-icon" data-iconpos="notext" data-corners="false" data-shadow="false" >
+								<!-- <img id="headericons" src="../images/UI/menu.png"> -->
+								<img id="headericons" src="../images/icon/icon_fb.png">
+							</a>
 					</li>
 					<li>
-						<a href="#new">
+						<a href="#new" class="ui-btn-inline">
 							<img id="headericons" src="../images/UI/add.png">
 						</a>
 					</li>
