@@ -100,7 +100,6 @@ function($, _, Backbone,
 			// Do some saving
 			var self = this;
 			this.model.set('category', $('#category').val());
-			this.model.set('description', $('#description').val());
 			// Redirect
 			this.index = 2;
 			this.render();
@@ -115,6 +114,8 @@ function($, _, Backbone,
 		clickOnSaveReport: function() {
 			this.model.set('latitude', $('#latitude').val());
 			this.model.set('longitude', $('#longitude').val());
+			this.model.set('timestamp', new Date().getTime());
+
 			console.log(this.model);
 
 			this.model.save(
@@ -161,11 +162,10 @@ function($, _, Backbone,
 		},
 
 		onImageUploaded: function(image_url, message) {
-			alert("111");
-			console.log("Called" + image_url);
+			console.log("[onImageUploaded] Image Url" + image_url);
 			if(image_url.length > 1) {
 				alert('Image uploaded' + image_url);
-				this.model.set('image_url', image_url);
+				this.model.set('img_url', image_url);
 			} else {
 				alert('image failed to upload');
 			}
