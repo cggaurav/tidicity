@@ -38,7 +38,6 @@ define([
 					};
 					this_.render();
 				}, this_.getLocationOnError);	
-				
 			},
 
 			render: function(){

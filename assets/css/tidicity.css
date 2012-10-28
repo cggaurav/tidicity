@@ -6,6 +6,10 @@
   background-size:100% 100%;
 }
 
+#headericons{
+  top: 0;
+  max-height: 28px;
+}
 .ui-btn-inner{
   background: url(../images/UI/header.png);
   background-repeat:repeat-y;
@@ -26,4 +30,43 @@ header > li{
   -khtml-background-size:100% 100%;         /*  Konqueror  */
   -moz-background-size:100% 100%;           /*  Firefox  */
 
+}
+
+.morphing-tinting .image-wrap {
+  position: relative;
+
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.morphing-tinting .image-wrap:hover {
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  border-radius: 30em;
+}
+
+.morphing-tinting .image-wrap:after {
+  position: absolute;
+  content: ' ';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  transition: 1s;
+
+  -webkit-border-radius: 30em;
+  -moz-border-radius: 30em;
+  border-radius: 30em;
+}
+.morphing-tinting .image-wrap:hover:after  {
+  background: -webkit-gradient(radial, 50% 50%, 40, 50% 50%, 80, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
+  background: -moz-radial-gradient(50% 50%, circle, rgba(0,0,0,0) 40px, rgba(0,0,0,1) 80px);
 }
