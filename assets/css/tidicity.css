@@ -1,3 +1,7 @@
+@font-face { 
+  font-family: MavenPro; src: url('MavenProLight-300.otf'); 
+}
+
 #navbar{
   background: url(../images/UI/header.png);
   background-repeat:repeat-y;
@@ -9,6 +13,7 @@
 #headericons{
   top: 0;
   max-height: 28px;
+  max-width: 40px;
 }
 .ui-btn-inner{
   background: url(../images/UI/header.png);
@@ -69,4 +74,14 @@ header > li{
 .morphing-tinting .image-wrap:hover:after  {
   background: -webkit-gradient(radial, 50% 50%, 40, 50% 50%, 80, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
   background: -moz-radial-gradient(50% 50%, circle, rgba(0,0,0,0) 40px, rgba(0,0,0,1) 80px);
+}
+
+#marker{
+  margin-top: 3px; 
+  font-family: MavenPro, sans-serif;
+  background: #ffffff;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }

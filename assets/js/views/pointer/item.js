@@ -61,7 +61,26 @@ define([
 
 				google.maps.event.addListener(marker, "click", function() {
 					// console.log(marker.getPosition());	
-					var infoBox = new InfoBox();
+					// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif
+					var myOptions = {
+					                 content: m
+					                ,disableAutoPan: false
+					                ,maxWidth: 100
+					                ,pixelOffset: new google.maps.Size(-140, 0)
+					                ,zIndex: 20
+					                ,boxStyle: { 
+					                  background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
+					                  ,opacity: 0.9
+					                  ,width: "300px"
+					                 }
+					                ,closeBoxMargin: "10px 2px 2px 2px"
+					                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+					                ,infoBoxClearance: new google.maps.Size(1, 1)
+					                ,isHidden: false
+					                ,pane: "floatPane"
+					                ,enableEventPropagation: false
+					        };
+					var infoBox = new InfoBox(myOptions);
 					infoBox.setContent(marker.content);
 					infoBox.open(this_.map,marker);
 				});
