@@ -16,6 +16,11 @@ define(['jquery', 'underscore', 'backbone'],
 				// img_url: '',
 				// user_id: '1'
 			},
+			toJSON: function () {
+			    var json = Backbone.Model.prototype.toJSON.call(this);
+			    json.timestamp = new Date(this.get('timestamp'));
+			    return json;
+			},
 			initialize: function(){
 				console.log("MapPointer model has been defined.");
 			},

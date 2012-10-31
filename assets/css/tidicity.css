@@ -76,6 +76,7 @@ header > li{
   background: -moz-radial-gradient(50% 50%, circle, rgba(0,0,0,0) 40px, rgba(0,0,0,1) 80px);
 }
 
+/*item.js*/
 #marker{
   margin-top: 3px; 
   font-family: MavenPro, sans-serif;
@@ -84,4 +85,9 @@ header > li{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+#marker-image
+{
+  width:100px;
+  height:200px;
 }
