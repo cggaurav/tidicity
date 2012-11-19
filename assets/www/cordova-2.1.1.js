@@ -1036,7 +1036,8 @@ androidExec.setNativeToJsBridgeMode = function(mode) {
 
     nativeToJsBridgeMode = mode;
     // Tell the native side to switch modes.
-    prompt(mode, "gap_bridge_mode:");
+    // Disabling gap_bridge_mode -- Gaurav Chandrashekar
+    // prompt(mode, "gap_bridge_mode:");
 
     if (mode == nativeToJsModes.POLLING) {
         polling.start();
