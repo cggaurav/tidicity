@@ -31,14 +31,16 @@
 	<script src="../js/jqm.slidemenu.js"></script>
 	<script data-main="../js/main" src="../js/libs/require/require.js"></script>
 	<script type="text/javascript">
-	// $(document).bind("mobileinit", function(){
- //        $.mobile.ajaxEnabled = false;
- //        $.mobile.hashListeningEnabled = false;
- //        // Remove page from DOM when it's being replaced
- //                $('div[data-role="page"]').live('pagehide', function (event, ui) {
- //                    $(event.currentTarget).remove();
- //                });
- //      });
+	$(document).bind("mobileinit", function(){
+        $.mobile.ajaxEnabled = false;
+        $.mobile.hashListeningEnabled = false;
+         $.mobile.linkBindingEnabled = false;
+         $.mobile.pushStateEnabled = false;
+        // Remove page from DOM when it's being replaced
+                // $('div[data-role="page"]').live('pagehide', function (event, ui) {
+                //     $(event.currentTarget).remove();
+                // });
+      });
 </script>
 </head>
 <body>
@@ -55,8 +57,8 @@
 		<h3>MENU</h3>
 
 		<ul>
-			<li><a href="#main"><img src="../images/smico3.png">Home</a></li>
-			<li><a href="#new"><img src="../images/smico5.png">Report</a></li>
+			<li><a href="#main" onclick="window.app_router.navigate('main', true)"><img src="../images/smico3.png">Home</a></li>
+			<li><a href="#new" onclick="window.app_router.navigate('new', true)"><img src="../images/smico5.png">Report</a></li>
 			<li><a href="#about"><img src="../images/smico6.png">About Tidicity</a></li>
 		</ul>
 
@@ -77,7 +79,7 @@
 							</a>
 					</li>
 					<li>
-						<a href="#new" class="ui-btn-inline">
+						<a href="#new" onclick="window.app_router.navigate('new', true)" class="ui-btn-inline">
 							<img id="headericons" src="../images/UI/add.png">
 						</a>
 					</li>
