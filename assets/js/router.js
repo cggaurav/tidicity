@@ -6,6 +6,7 @@ define(['jquery', 'underscore', 'backbone'],
       'new': 'showNewReportView',
       // Define custom routes
       // Default
+      'main' : 'defaultAction',
       '*actions': 'defaultAction'
     }
   });
