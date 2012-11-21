@@ -1,6 +1,5 @@
 define(['jquery', 'underscore', 'backbone', 'jqueryui', 
 	'models/pointer/item', 
-	'text!templates/pointer/new.html', 
 	'text!templates/pointer/postPointer/step1.html', 
 	'text!templates/pointer/postPointer/step2.html', 
 	'text!templates/pointer/postPointer/step3.html', 
@@ -9,8 +8,7 @@ define(['jquery', 'underscore', 'backbone', 'jqueryui',
 // Uploader
 
 function($, _, Backbone, 
-	jQueryUI, PointerModel, 
-	postMapPointerTemplate, 
+	jQueryUI, PointerModel,  
 	step1Template, 
 	step2Template, 
 	step3Template, 
@@ -18,7 +16,7 @@ function($, _, Backbone,
 
 	var PostPointerView = Backbone.View.extend({
 
-		el: $("#new"),
+		el: $("#content"),
 
 		model: PointerModel,
 
@@ -34,7 +32,6 @@ function($, _, Backbone,
 
 		templateStep3: step3Template,
 
-		template: postMapPointerTemplate,
 
 		initialize: function() {
 			this.model = new PointerModel();
@@ -60,8 +57,9 @@ function($, _, Backbone,
 			} else {
 				this.renderStep3();
 			}
+			$('.ui-page-active').page("destroy").page();
 			// Need to recreate the page once the thing is loaded
-			this.$el.page('destroy').page();
+			// this.$el.page('destroy').page();
 			//this.$el.page.trigger('create');
 			// Currently the return does nothing
 			console.log('[PostPointerView] Rendering Complete for index ' + this.index);
