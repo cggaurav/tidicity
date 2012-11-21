@@ -8,7 +8,8 @@ define([
 		var MapView = Backbone.View.extend({
 
 			mapOptions: {
-				center: new google.maps.LatLng(-34, 151),
+				center: new google.maps.LatLng( 1.3, 103.7),
+				// For location not detected, default to Singapore
 			    zoom: 8,
 			    mapTypeId: google.maps.MapTypeId.ROADMAP	
 
