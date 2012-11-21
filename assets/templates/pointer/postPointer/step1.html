@@ -1,24 +1,38 @@
-<div data-role="header">
-	<h1>Post a new Report: Step 1</h1>
-	<a href="index.html" data-role="button" class="ui-btn-left">Home</a>
-</div><!-- /header -->
-
-<div data-role="content" id="newContent"> 
-	<form>
-		<p>
-			<label for="category">Enter Category</label>
-			<select name="category" id="category" placeholder="choose one..">
-				<option value="Uncategorized">Uncategorized</option>
-				<option value="Garbage">Garbage</option>
-				<option value="Roadblock">Roadblock</option>
-				<option value="Graffiti">Graffiti</option>
-				<option value="Water Logging">Water Logging</option>
-				<option value="Other">Other</option>
-			</select>
-		</p>
-	</form>	
-	<a href='#' data-role="button" class='gotoStep2'>Next</a>
-</div><!-- /content -->
-<div data-role="footer">
-	<h4>Page Footer</h4>
-</div><!-- /footer -->
+<div data-role="header" data-theme="c">
+    <h1>
+        Post a new Report: Step 1
+    </h1>
+</div>
+<!-- /header -->
+<div data-role="content" id="newContent">
+    <form>
+        <div data-role="fieldcontain">
+            <label for="category">
+                Enter Category
+            </label>
+            <select name="category" id="category" placeholder="choose one.." class="select">
+                <option value="Uncategorized">
+                    Uncategorized
+                </option>
+                <option value="Garbage">
+                    Garbage
+                </option>
+                <option value="Roadblock">
+                    Roadblock
+                </option>
+                <option value="Graffiti">
+                    Graffiti
+                </option>
+                <option value="Water Logging">
+                    Water Logging
+                </option>
+                <option value="Other">
+                    Other
+                </option>
+            </select>
+        </div>
+    </form>
+   
+    <a href='#' data-role="button" data-theme="c" class='gotoStep2'>Next</a>
+</div>
+<!-- /content -->
