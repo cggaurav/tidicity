@@ -71,7 +71,7 @@ define([
 					                ,boxStyle: { 
 					                  background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat"
 					                  ,opacity: 0.9
-					                  ,width: "300px"
+					                  ,width: "200px"
 					                 }
 					                ,closeBoxMargin: "10px 2px 2px 2px"
 					                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"

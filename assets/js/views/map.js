@@ -48,8 +48,8 @@ define([
 			render: function(){
 				this.$el.html(mainHomeTemplate);
 				var m = this.$el.find('#map_canvas');
-				m.css('height', $(window).height() - 90);
-				m.css('width', $(window).width()-30);
+				m.css('height', $(window).height());
+				m.css('width', $(window).width());
 			    this.map = new google.maps.Map(m.get(0), this.mapOptions);
 			    window.map = this.map;
 			    console.log("Map Created");

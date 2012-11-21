@@ -13,7 +13,7 @@ define(['jquery', 'underscore', 'backbone'],
 				// accuracy : 54,
 				// altitude_accuracy: null,
 				// timestamp: null,
-				// img_url: '',
+				img_url: '',
 				// user_id: '1'
 			},
 			toJSON: function () {
