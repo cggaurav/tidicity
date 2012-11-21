@@ -22,6 +22,7 @@ define(['jquery', 'underscore', 'backbone'],
       //});
       app_router.on('route:showNewReportView', function() {
         require(['views/pointer/new'], function(PostPointerView) {
+          console.log("showNewReportView");
           // As above, call render on our loaded module
           var newPointerView = new PostPointerView();
           newPointerView.render();
