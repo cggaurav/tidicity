@@ -4,18 +4,18 @@ $(document).on("pageinit", function(e){
 	var sm = $($("#"+ $(e.target).attr('id') +" :jqmData(slidemenu)").data('slidemenu'));
 	sm.addClass('slidemenu');
 	
-	$(document).on("click",".ui-page-active", function(e){
-		if (sm.data('slideopen')) {
-			$(".ui-page-active :jqmData(role='header')").removeClass('ui-fixed-hidden');
-		}
-	});
+	// $(document).on("click",".ui-page-active", function(e){
+	// 	if (sm.data('slideopen')) {
+	// 		$(".ui-page-active :jqmData(role='header')").removeClass('ui-fixed-hidden');
+	// 	}
+	// });
 
-	$($('div:not(#map_canvas)')).on("swipeleft swiperight",".ui-page-active", function(e){
-		console.log('b');
-		e.stopImmediatePropagation();
-		e.preventDefault();
-		slidemenu(sm, sm.data('slideopen'));
-	});
+	// $($('div:not(#map_canvas)')).on("swipeleft swiperight",".ui-page-active", function(e){
+	// 	console.log('b');
+	// 	e.stopImmediatePropagation();
+	// 	e.preventDefault();
+	// 	slidemenu(sm, sm.data('slideopen'));
+	// });
 
 	$(document).on("click", ".ui-page-active :jqmData(slidemenu)", function(e) {
 		slidemenu(sm, sm.data('slideopen'));

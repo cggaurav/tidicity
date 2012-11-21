@@ -59,6 +59,7 @@ define([
 					visible: true
 				});
 
+
 				google.maps.event.addListener(marker, "click", function() {
 					// console.log(marker.getPosition());	
 					// http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif
@@ -73,7 +74,7 @@ define([
 					                  ,opacity: 0.9
 					                  ,width: "200px"
 					                 }
-					                ,closeBoxMargin: "10px 2px 2px 2px"
+					                ,closeBoxMargin: "10px 4px 4px 4px"
 					                ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
 					                ,infoBoxClearance: new google.maps.Size(1, 1)
 					                ,isHidden: false

@@ -102,9 +102,11 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 		},
 
 		clickOnSaveReport: function() {
-			this.model.set('timestamp', new Date());
 			var this_ = this;
-
+			this.model.set('timestamp', new Date());
+			var description = $("#description").val();
+			// console.log("Description is " + description);
+			this.model.set('description', description);
 			navigator.geolocation.getCurrentPosition(function(position) {
 				var position = position;
 				console.log(position);
@@ -113,7 +115,6 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 				this_.model.set('altitude', position.coords.accuracy);
 				this_.model.set('altitude_accuracy', position.coords.altitudeAccuracy);
 				this_.model.set('accuracy', position.coords.accuracy);
-
 				this_.model.save(
 				null, {
 					success: function(model, response) {

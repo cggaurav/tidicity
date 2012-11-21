@@ -70,6 +70,7 @@ define(['jquery',
 			self.clearPointers();
 			_.each(this.model.models, function(item) {
 				self.add(item);
+				// console.log(item);
 			}, this);
 
 			// Currently the return does nothing

@@ -38,7 +38,7 @@ define([
 					console.log(position);
 					this_.mapOptions = {
 						center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
-					    zoom: 15,
+					    zoom: 12,
 					    mapTypeId: google.maps.MapTypeId.ROADMAP	
 					};
 					this_.render();
