@@ -1,18 +1,7 @@
-define(['jquery', 'underscore', 'backbone', 'jqueryui', 
-	'models/pointer/item', 
-	'text!templates/pointer/postPointer/step1.html', 
-	'text!templates/pointer/postPointer/step2.html', 
-	'text!templates/pointer/postPointer/step3.html', 
-	'upload', 
-	'simpleDialog'],
+define(['jquery', 'underscore', 'backbone', 'jqueryui', 'models/pointer/item', 'text!templates/pointer/postPointer/step1.html', 'text!templates/pointer/postPointer/step2.html', 'text!templates/pointer/postPointer/step3.html', 'upload', 'simpleDialog'],
 // Uploader
 
-function($, _, Backbone, 
-	jQueryUI, PointerModel,  
-	step1Template, 
-	step2Template, 
-	step3Template, 
-	Uploader, simpledialog2) {
+function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, step3Template, Uploader, simpledialog2) {
 
 	var PostPointerView = Backbone.View.extend({
 
@@ -51,7 +40,7 @@ function($, _, Backbone,
 			if(this.index == 1) {
 				// Render Step 1
 				this.renderStep1();
-			} else if (this.index == 2) {
+			} else if(this.index == 2) {
 				// Render Step 2
 				this.renderStep2();
 			} else {
@@ -105,30 +94,45 @@ function($, _, Backbone,
 
 		clickOnGotoStep3: function() {
 			var self = this;
+			if(!this.model.get('img_url')) {
+				this.model.set('img_url', "http://lorempixel.com/500/400");
+			}
 			this.index = 3;
 			this.render();
 		},
 
 		clickOnSaveReport: function() {
-			this.model.set('latitude', $('#latitude').val());
-			this.model.set('longitude', $('#longitude').val());
-			this.model.set('timestamp', new Date().getTime());
+			this.model.set('timestamp', new Date());
+			var this_ = this;
 
-			console.log(this.model);
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var position = position;
+				console.log(position);
+				this_.model.set('latitude', position.coords.latitude);
+				this_.model.set('longitude', position.coords.longitude);
+				this_.model.set('altitude', position.coords.accuracy);
+				this_.model.set('altitude_accuracy', position.coords.altitude_accuracy);
+				this_.model.set('accuracy', position.coords.accuracy);
 
-			this.model.save(
+				this_.model.save(
 				null, {
 					success: function(model, response) {
 						console.log("Successfully saved the model");
-					// Navigate to a different scene
-					alert("Successfully Saved");
-					window.app_router.navigate('');
-				},
-				error: function(model, response) {
-					console.log("could not save the model");
-					console.log(response);
-				}
+						// Navigate to a different scene
+						alert("Successfully Saved");
+						window.app_router.navigate('index.html');
+					},
+					error: function(model, response) {
+						console.log("could not save the model");
+						console.log(response);
+					}
+				});
+
+			}, function onError() {
+				alert("Failed to get the location of your position");
 			});
+
+			console.log(this.model);
 		},
 
 		clickOnSelectImage: function() {
@@ -168,7 +172,7 @@ function($, _, Backbone,
 				alert('image failed to upload');
 			}
 		},
-		
+
 		onImageSelected: function(image_data, message) {
 			var self = this;
 			self.image_data = image_data;
@@ -184,5 +188,5 @@ function($, _, Backbone,
 
 	});
 
-return PostPointerView;
+	return PostPointerView;
 });
