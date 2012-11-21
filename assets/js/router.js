@@ -4,8 +4,7 @@ define(['jquery', 'underscore', 'backbone'],
   var AppRouter = Backbone.Router.extend({
     routes: {
       'new': 'showNewReportView',
-      // Define custom routes
-      // Default
+      // 'about' : 'defaultAction',
       'main' : 'defaultAction',
       '*actions': 'defaultAction'
     }
