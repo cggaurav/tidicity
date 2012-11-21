@@ -25,6 +25,11 @@ define([
 			},
 
 			initialize: function(){
+
+				// var viewport = {
+				//     width  : $(window).width(),
+				//     height : $(window).height()
+				// };
 				var x = new MapPointer();
 				var this_=this;
 				var position = null;
@@ -43,6 +48,8 @@ define([
 			render: function(){
 				this.$el.html(mainHomeTemplate);
 				var m = this.$el.find('#map_canvas');
+				m.css('height', $(window).height());
+				m.css('width', $(window).width());
 			    this.map = new google.maps.Map(m.get(0), this.mapOptions);
 			    window.map = this.map;
 			    console.log("Map Created");

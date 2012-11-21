@@ -71,6 +71,12 @@ header > li{
   -moz-border-radius: 30em;
   border-radius: 30em;
 }
+
+#map_canvas{
+  padding: 0px;
+  margin: 0px;
+}
+
 .morphing-tinting .image-wrap:hover:after  {
   background: -webkit-gradient(radial, 50% 50%, 40, 50% 50%, 80, from(rgba(0,0,0,0)), to(rgba(0,0,0,1)));
   background: -moz-radial-gradient(50% 50%, circle, rgba(0,0,0,0) 40px, rgba(0,0,0,1) 80px);
@@ -82,6 +88,7 @@ header > li{
   font-family: MavenPro, sans-serif;
   background: #ffffff;
   padding: 5px;
+  height: 300px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;

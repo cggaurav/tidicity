@@ -14,10 +14,4 @@ public class MainActivity extends DroidGap {
 //        setContentView(R.layout.activity_main);
         super.loadUrl("file:///android_asset/www/index.html");
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        return true;
-    }
 }
