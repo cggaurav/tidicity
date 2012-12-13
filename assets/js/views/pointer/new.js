@@ -114,7 +114,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 				this_.model.set('longitude', position.coords.longitude);
 				this_.model.set('altitude', position.coords.accuracy);
 				this_.model.set('altitude_accuracy', position.coords.altitudeAccuracy);
-				this_.model.set('accuracy', position.coords.accuracy);
+        this_.model.set('accuracy', position.coords.accuracy);
 				this_.model.save(
 				null, {
 					success: function(model, response) {

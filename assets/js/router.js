@@ -40,7 +40,15 @@ define(['jquery', 'underscore', 'backbone'],
             // var y = new PointerModel({latitude: 1.3, longitude:102.7});
             // var z = new PointerModel({latitude: 1.3, longitude:101.7});
             var aList = new PointerModelList();
-            aList.fetch();
+            navigator.geolocation.getCurrentPosition(function(position) {
+              aList.fetch({ 
+                data: { 
+                  'lat': position.coords.latitude,
+                  'long': position.coords.longitude
+                },
+                processData: true
+              });
+            });
             var pointerListView = new PointerListView({
               model: aList
             });
