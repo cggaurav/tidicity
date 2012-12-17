@@ -6,6 +6,7 @@ define(['jquery', 'underscore', 'backbone'],
       'new': 'showNewReportView',
       // 'about' : 'defaultAction',
       'main' : 'defaultAction',
+      'about' : 'defaultAction',
       '*actions': 'defaultAction'
     }
   });

@@ -1,8 +1,6 @@
-Tidicity on Android is a civic engagement app to make citiziens report common problems in their neighborhood!
+To Run
 
-Things to complete: 
+at root, run node server.js
+and visit "http://localhost:8080/assets/www/index.html"
 
-1.  Get MapView to take the full view of the page
-2.  Slider out, is not getting the view back to the original view. Left most tab view is out of view.
-3.  Change the UI for uploading image and add imageURL and description.
-
+Will send you the APK via appaloosa soon.

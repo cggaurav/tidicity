@@ -12,7 +12,7 @@ define(['jquery',
 			},
 
 			url: function() {
-				return "http://tidicity.herokuapp.com/allreports";
+				return "http://tidicity.herokuapp.com/report";
 			}
 
 		});

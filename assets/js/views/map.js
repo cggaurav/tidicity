@@ -39,7 +39,7 @@ define([
 					console.log(position);
 					this_.mapOptions = {
 						center: new google.maps.LatLng(position.coords.latitude,position.coords.longitude),
-					    zoom: 12,
+					    zoom: 15,
 					    mapTypeId: google.maps.MapTypeId.ROADMAP	
 					};
 					this_.render();
@@ -49,7 +49,7 @@ define([
 			render: function(){
 				this.$el.html(mainHomeTemplate);
 				var m = this.$el.find('#map_canvas');
-				m.css('height', $(window).height());
+				m.css('height', $(window).height() - 71);
 				m.css('width', $(window).width());
 			    this.map = new google.maps.Map(m.get(0), this.mapOptions);
 			    window.map = this.map;

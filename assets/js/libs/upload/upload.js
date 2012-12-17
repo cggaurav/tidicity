@@ -27,9 +27,11 @@ define(['jquery'], function(jquery) {
    var Upload = {
       // The callback function that will be invoked with either link or error
       callback_func: null,
+      image_url : null,
+      image_data : null,
       // file is from a <input> tag or from Drag'n Drop
-      upload: function(file, callback_func) {
-
+      upload: function(file,callback_func) {
+         console.log("in Upload!");
          // Set up the callback first
          Upload.callback_func = callback_func;
          // Checking if the file selected 
@@ -38,6 +40,7 @@ define(['jquery'], function(jquery) {
             Upload.callback_func(null, WRONG_FILE_FORMAT_ERROR);
          }
 
+         var img_url = "";
          // It is!
          // Let's build a FormData object
          var fd = new FormData();
@@ -63,17 +66,17 @@ define(['jquery'], function(jquery) {
             */
             // finally callback 
             console.log("Uploaded image url " + img_url);
+            Upload.image_url = img_url;
+            console.log("The upload callback function is ");
             console.log(Upload.callback_func);
-            //this is undefined 
-
 
             if(Upload.callback_func) {
                Upload.callback_func(img_url, "");
             }
          }
-
          // And now, we send the formdata
          xhr.send(fd);
+         return img_url;
       },
 
       // Image Retreival Functions 
@@ -81,14 +84,16 @@ define(['jquery'], function(jquery) {
       // callback_function set up :-
       // function callback_func(img_url, message)
       //
-      getPhotoFromLibrary: function(callback_func) {
-         Upload.callback_func = callback_func;
+      getPhotoFromLibrary: function(cf) {
          // Set up the necessary sources
+
+         Upload.callback_func = cf;
+
          pictureSource = navigator.camera.PictureSourceType;
          destinationType = navigator.camera.DestinationType;
 
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
-            quality: 50,
+            quality: 49,
             destinationType: destinationType.DATA_URL,
             sourceType: pictureSource.PHOTOLIBRARY,
             allowEdit: true,
@@ -100,14 +105,16 @@ define(['jquery'], function(jquery) {
       // Call this function if you want to use the Camera
       // callback_function set up :-
       // function callback_func(img_url, message)
-      getPhotoFromCamera: function(callback_func) {
-         Upload.callback_func = callback_func;
+      getPhotoFromCamera: function(cf) {
          // Set up the necessary sources
+
+         Upload.callback_func = cf;
+
          pictureSource = navigator.camera.PictureSourceType;
          destinationType = navigator.camera.DestinationType;
 
-         navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
-            quality: 50,
+         navigator.camera.getPicture(Upload.onPhotoDataSuccess , Upload.onFail, {
+            quality: 49,
             destinationType: destinationType.DATA_URL,
             sourceType: pictureSource.CAMERA,
             allowEdit: true,
@@ -116,16 +123,23 @@ define(['jquery'], function(jquery) {
          });
       },
 
+
+      getImageData: function(){
+         return Upload.imageData;
+      },
+
+      getImageURL : function(){
+         return Upload.image_url;
+      },
+
       onFail: function(message) {
-         if(Upload.callback_func) {
-            Upload.callback_func("", message);
-         }
+         alert("Failed to obtain the picture!Only god knows why!");
+         console.log(message);
       },
 
       onPhotoDataSuccess: function(imageData) {
-         if(Upload.callback_func) {
-            Upload.callback_func(imageData, "Success");
-         }
+         Upload.imageData = imageData;
+         Upload.upload(imageData, Upload.callback_func)
       }
    }
 

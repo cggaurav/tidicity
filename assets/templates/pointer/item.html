@@ -1,21 +1,10 @@
-<!-- Bunch of inline css, hack for presentation, remove later -->
-<script>
-  $(function() {
-    $('#upvote').click(function(e) {
-      $('numUpvotes').html(parseInt($('numUpvotes').html()) + 1);
-    });
-  }
-</script>
-<div id="marker" style="-moz-box-shadow: 0px 0px 2px 2px #444; -webkit-box-shadow: 0px 0px 2px 2px #444; box-shadow: 0px 0px 2px 2px #444;" text-align="center">
-	<h4 style="text-align: center;"> <%=category%> </h4>
+
+<div id="marker">
+	<h4> <%=category%> </h4>
   <div class="details" text-align="center">
     <img src=<%=img_url%> height="150px" width="150px" style="border: 1px solid black; display:block; margin-left: auto; margin-right:auto;">
     <h5 style="text-align: center;"> Approximately <%=timestamp%> ago</h5>
     <p style="text-align: center;"> <%=description%> </p>
-    <p style="text-align: center;">
-      <img id="upvote" onclick="$('#numUpvotes').html(parseInt($('#numUpvotes').html()) + 1);" style="vertical-align: middle;" src="../images/icon/upvote.gif"/>
-      <span id="numUpvotes"><%=upvotes%></span>  <!-- <img src="../images/icon/clock.png"/> -->
-    </p>
     <!-- <img src="../images/icon/viewdetailsarrow.png"/> -->
     <!-- <a>More details</a> -->
 </div>

@@ -11,7 +11,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 
 		// Temporary vars needed to store shit
 		image_data: '',
-
+		image_url : '',
 		// First page has index = 1
 		index: 1,
 
@@ -21,6 +21,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 
 		templateStep3: step3Template,
 
+		bigSelf: this,
 
 		initialize: function() {
 			this.model = new PointerModel();
@@ -86,6 +87,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 		clickOnGotoStep2: function() {
 			// Do some saving
 			var self = this;
+			// console.log(this.onImageUploaded);
 			this.model.set('category', $('#category').val());
 			// Redirect
 			this.index = 2;
@@ -104,6 +106,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 		clickOnSaveReport: function() {
 			var this_ = this;
 			this.model.set('timestamp', new Date());
+			this.model.set('img_url', Uploader.getImageURL());
 			var description = $("#description").val();
 			// console.log("Description is " + description);
 			this.model.set('description', description);
@@ -155,6 +158,14 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 			console.log(this.model);
 		},
 
+
+		onImageUploaded: function(image_url, message) {
+			console.log("[onImageUploaded] Image Url" + image_url);
+			$('#attachment-area').css('display', 'block');
+			$('#attachment-img').attr('src', 'data:image/png;base64,' + Uploader.getImageData());	
+		},
+
+
 		clickOnSelectImage: function() {
 			var self = this;
 			// PHONE GAP Associated Settings
@@ -167,48 +178,20 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 					'Take a Photo': {
 						click: function() {
 							//self.onImageSelected("R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==", "Sucess");
-							Uploader.getPhotoFromCamera(self.onImageSelected);
-							//takePicture();
+							Uploader.getPhotoFromCamera(self.onImageUploaded);
 						},
 						theme: "d"
 					},
 					//Comment out for Blackberry Porting
 					'Choose from Library': {
 						click: function() {
-							Uploader.getPhotoFromLibrary(self.onImageSelected);
+							Uploader.getPhotoFromLibrary(self.onImageUploaded);
 						},
 						theme: "d"
 					}
 				}
 			});
 		},
-
-		onImageUploaded: function(image_url, message) {
-			console.log("[onImageUploaded] Image Url" + image_url);
-			if(image_url.length > 1) {
-				alert('Image uploaded' + image_url);
-				this.model.set('img_url', image_url);
-			} else {
-				alert('Image failed to upload');
-			}
-		},
-
-		onImageSelected: function(image_data, message) {
-			console.log("On Image Selected");
-			var self = this;
-			self.image_data = image_data;
-			if(message.length > 1) {
-				$('#attachment-area').css('display', 'block');
-				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
-				var img_url = Uploader.upload(self.image_data);
-				console.log("This is Gaurav's img_url" + img_url);
-				this.model.set('img_url', img_url);
-				//router.postQuestionView.model.set({attachmentPic:image_data});
-				//$('#attachment-img').attr('src',image_data);
-				//$('#attachment-img-bk').attr('src',image_data);
-			}
-		}
-
 	});
 
 	return PostPointerView;

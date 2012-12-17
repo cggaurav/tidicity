@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="../css/jqm.slidemenu.css" />
 	<link rel="stylesheet" href="../css/tidicity.css" />
 
+	<!-- Load the scripts here -->
 	<!-- Fix this as modules for require.js -->
 	<script src="../js/libs/jquery/jquery-1.8.2.min.js"></script>
 	<script src="../js/libs/jquery/jquery.mobile-1.2.0.min.js"></script>
@@ -29,41 +30,22 @@
 	<script src="../js/jquery.animate-enhanced.min.js"></script>
 	<script src="../js/jqm.slidemenu.js"></script>
 	<script data-main="../js/main" src="../js/libs/require/require.js"></script>
-	<script type="text/javascript">
-	$(document).bind("mobileinit", function(){
-        $.mobile.ajaxEnabled = false;
-        $.mobile.hashListeningEnabled = false;
-         $.mobile.linkBindingEnabled = false;
-         $.mobile.pushStateEnabled = false;
-        // Remove page from DOM when it's being replaced
-                // $('div[data-role="page"]').live('pagehide', function (event, ui) {
-                //     $(event.currentTarget).remove();
-                // });
-      });
-</script>
 </head>
 <body>
 	<div id="slidemenu">
-
-		<!-- <div id="profile" align="center"> -->
-			<!-- 240x71px -->
-			<div class="morphong-tinting">
-				<img class="morphing-tinting" src="../images/logo/slider_logo.png">
-			</div>
-			<!-- <div class="profile_info"><strong>Tegan Snyder</strong><br><small>Web &amp; Mobile Developer</small></div> -->
-		<!-- </div> -->
-
 		<h3>MENU</h3>
 
 		<ul>
 			<li><a href="#main" onclick="window.app_router.navigate('main', true)"><img src="../images/smico3.png">Home</a></li>
 			<li><a href="#new" onclick="window.app_router.navigate('new', true)"><img src="../images/smico5.png">Report</a></li>
-			<li><a href="#about"><img src="../images/smico6.png">About Tidicity</a></li>
+			<li><a href="#about" onclick="window.app_router.navigate('about',true)"><img src="../images/smico6.png">About Tidicity</a></li>
 		</ul>
 
 	</div>
 
 	<div data-role="page" id="main_page" data-theme="d">
+
+		<!-- Normalize these headers later -->
 		<div data-role="header" data-position="fixed" id="header" data-theme="d">
 			<div data-role="navbar" id="navbar">
 				<ul>
@@ -85,12 +67,7 @@
 				</ul>
 			</div>
 		</div>
-		<div data-role="content" id="content" style="padding-left:0px;padding-right:0px;">	
-		</div>
-	</div>
-	<!-- <div data-role="page" id="about"></div> -->
-	<!-- <div data-role="page" id="new"></div> -->
-
-	
+		<div data-role="content" id="content"></div>
+	<div>
 </body>
 </html>

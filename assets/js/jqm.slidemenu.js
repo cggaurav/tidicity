@@ -3,14 +3,8 @@ $(document).on("pageinit", function(e){
 	$("#"+ $(e.target).attr('id') +" :jqmData(slidemenu)").addClass('slidemenu_btn');
 	var sm = $($("#"+ $(e.target).attr('id') +" :jqmData(slidemenu)").data('slidemenu'));
 	sm.addClass('slidemenu');
-	
-	// $(document).on("click",".ui-page-active", function(e){
-	// 	if (sm.data('slideopen')) {
-	// 		$(".ui-page-active :jqmData(role='header')").removeClass('ui-fixed-hidden');
-	// 	}
-	// });
 
-	// $($('div:not(#map_canvas)')).on("swipeleft swiperight",".ui-page-active", function(e){
+	// $(document).on("swipeleft swiperight",".ui-page-active", function(e){
 	// 	console.log('b');
 	// 	e.stopImmediatePropagation();
 	// 	e.preventDefault();
@@ -52,7 +46,7 @@ function slidemenu(sm, only_close) {
 		$(".ui-page-active").css('left', '240px');
 		sm.data('slideopen', true);
 		if ($(".ui-page-active :jqmData(role='header')").data('position') == 'fixed') {
-			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '240px');
+			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '250px');
 		} else {
 			$(".ui-page-active :jqmData(slidemenu)").css('margin-left', '10px');
 		}

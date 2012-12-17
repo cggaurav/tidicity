@@ -9,7 +9,6 @@
   background-attachment:scroll;
   background-size:100% 100%;
 }
-
 #headericons{
   top: 0;
   max-height: 28px;
@@ -88,12 +87,20 @@ header > li{
   font-family: MavenPro, sans-serif;
   background: #ffffff;
   padding: 5px;
+  text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px 2px #444; 
+  -webkit-box-shadow: 0px 0px 2px 2px #444; 
+  box-shadow: 0px 0px 2px 2px #444;
 }
 .marker-image
 {
   width:100px;
   height:100px;
+}
+
+#content{
+  padding-left:0px;padding-right:0px;
 }
