@@ -134,7 +134,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 
 			}, function onError() {
 				// alert("Failed to get the location of your position");
-				//Testing purposes
+				//Testing purposes, please remove this
 				this_.model.set('latitude', 1);
 				this_.model.set('longitude', 2);
 				this_.model.set('altitude', 3);
@@ -160,7 +160,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 
 
 		onImageUploaded: function(image_url, message) {
-			console.log("[onImageUploaded] Image Url" + image_url);
+			console.log("[onImageUploaded] "  + message + " " + image_url);
 			$('#attachment-area').css('display', 'block');
 			$('#attachment-img').attr('src', 'data:image/png;base64,' + Uploader.getImageData());	
 		},

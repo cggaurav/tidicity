@@ -47,9 +47,25 @@ define([
 				console.log('this view is initialized');
 			},
 
+			dateDiff: function ( d1 ) {
+				d2  = new Date();
+			    var diff = Math.abs(d1 - d2);
+			    if (Math.floor(diff/86400000)) {
+			        return Math.floor(diff/86400000) + " days";
+			    } else if (Math.floor(diff/3600000)) {
+			        return Math.floor(diff/3600000) + " hours";
+			    } else if (Math.floor(diff/60000)) {
+			        return Math.floor(diff/60000) + " minutes";
+			    } else {
+			        return "< 1 minute";
+			    }
+			},
+
 			render: function(){
 				var this_ = this;
-				var m = _.template(this_.template, this_.model.toJSON());
+				var dataJSON = this_.model.toJSON();
+				dataJSON["timestamp"] = this_.dateDiff(dataJSON["timestamp"]);
+				var m = _.template(this_.template, dataJSON);
 				var position = new google.maps.LatLng(this_.model.get('latitude'), this_.model.get('longitude'));	
 				var marker = new google.maps.Marker({
 					position: position,
@@ -90,7 +106,7 @@ define([
 	   //              infoWindow.setContent(marker.content);
 	   //              infoWindow.open(this_.map, marker);
 	   //          });
-				console.log("marker " + marker);
+				// console.log("marker " + marker);
 			}
 		});
 

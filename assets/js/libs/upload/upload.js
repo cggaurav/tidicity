@@ -71,7 +71,7 @@ define(['jquery'], function(jquery) {
             console.log(Upload.callback_func);
 
             if(Upload.callback_func) {
-               Upload.callback_func(img_url, "");
+               Upload.callback_func(img_url, "Success");
             }
          }
          // And now, we send the formdata
