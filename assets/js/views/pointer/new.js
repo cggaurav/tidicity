@@ -94,9 +94,9 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 
 		clickOnGotoStep3: function() {
 			var self = this;
-			if(!this.model.get('img_url')) {
-				this.model.set('img_url', "http://lorempixel.com/500/400");
-			}
+			// if(!this.model.get('img_url')) {
+			// 	this.model.set('img_url', "http://lorempixel.com/500/400");
+			// }
 			this.index = 3;
 			this.render();
 		},
@@ -114,7 +114,7 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 				this_.model.set('longitude', position.coords.longitude);
 				this_.model.set('altitude', position.coords.accuracy);
 				this_.model.set('altitude_accuracy', position.coords.altitudeAccuracy);
-        this_.model.set('accuracy', position.coords.accuracy);
+        		this_.model.set('accuracy', position.coords.accuracy);
 				this_.model.save(
 				null, {
 					success: function(model, response) {
@@ -130,7 +130,26 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 				});
 
 			}, function onError() {
-				alert("Failed to get the location of your position");
+				// alert("Failed to get the location of your position");
+				//Testing purposes
+				this_.model.set('latitude', 1);
+				this_.model.set('longitude', 2);
+				this_.model.set('altitude', 3);
+				this_.model.set('altitude_accuracy', 4);
+        		this_.model.set('accuracy', 5);
+				this_.model.save(
+				null, {
+					success: function(model, response) {
+						console.log("Successfully saved the model");
+						// Navigate to a different scene
+						alert("Successfully Saved");
+						window.app_router.navigate('index.html');
+					},
+					error: function(model, response) {
+						console.log("could not save the model");
+						console.log(response);
+					}
+				});
 			});
 
 			console.log(this.model);
@@ -170,17 +189,20 @@ function($, _, Backbone, jQueryUI, PointerModel, step1Template, step2Template, s
 				alert('Image uploaded' + image_url);
 				this.model.set('img_url', image_url);
 			} else {
-				alert('image failed to upload');
+				alert('Image failed to upload');
 			}
 		},
 
 		onImageSelected: function(image_data, message) {
+			console.log("On Image Selected");
 			var self = this;
 			self.image_data = image_data;
 			if(message.length > 1) {
 				$('#attachment-area').css('display', 'block');
 				$('#attachment-img').attr('src', 'data:image/png;base64,' + image_data);
-				Uploader.upload(self.image_data, self.onImageUploaded);
+				var img_url = Uploader.upload(self.image_data);
+				console.log("This is Gaurav's img_url" + img_url);
+				this.model.set('img_url', img_url);
 				//router.postQuestionView.model.set({attachmentPic:image_data});
 				//$('#attachment-img').attr('src',image_data);
 				//$('#attachment-img-bk').attr('src',image_data);

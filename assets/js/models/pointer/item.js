@@ -44,7 +44,7 @@ define(['jquery', 'underscore', 'backbone'],
 				return json;
 			},
 			url: function(){
-				return "http://tidicity.herokuapp.com/report";
+				return "http://tidicity.herokuapp.com/allreports";
 			}
 		});
 

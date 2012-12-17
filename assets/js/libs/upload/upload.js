@@ -64,6 +64,9 @@ define(['jquery'], function(jquery) {
             // finally callback 
             console.log("Uploaded image url " + img_url);
             console.log(Upload.callback_func);
+            //this is undefined 
+
+
             if(Upload.callback_func) {
                Upload.callback_func(img_url, "");
             }
@@ -104,7 +107,7 @@ define(['jquery'], function(jquery) {
          destinationType = navigator.camera.DestinationType;
 
          navigator.camera.getPicture(Upload.onPhotoDataSuccess, Upload.onFail, {
-            quality: 40,
+            quality: 50,
             destinationType: destinationType.DATA_URL,
             sourceType: pictureSource.CAMERA,
             allowEdit: true,

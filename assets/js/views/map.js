@@ -10,7 +10,7 @@ define([
 			mapOptions: {
 				center: new google.maps.LatLng( 1.3, 103.7),
 				// For location not detected, default to Singapore
-			    zoom: 8,
+			    zoom: 13,
 			    mapTypeId: google.maps.MapTypeId.ROADMAP	
 
 			},
